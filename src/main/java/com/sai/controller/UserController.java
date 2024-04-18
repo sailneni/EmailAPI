@@ -14,21 +14,21 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-//	@GetMapping("/contact/{email}")
-//	public String getContact(@PathVariable String email) {
-//		//boolean status = userService.sendContact(email);
+	
+	 @GetMapping("/contact/{email}") 
+	 public String getContact(@PathVariable String email) { 
+		 userService.sendContact(email);
+	 
+		 return "email sent" + email;
+	 }
+	 
+//	@PostMapping("/contact/{email}")
+//	public String sendEmail(@PathVariable String email) {
+//		boolean status = userService.sendContact(email);
 //		
-//		return "email sent" + email;
+//		return "email sent successfully: " + status;
 //		
 //	}
-	
-	@PostMapping("/contact/{email}")
-	public String sendEmail(@PathVariable String email) {
-		boolean status = userService.sendContact(email);
-		
-		return "email sent successfully: " + status;
-		
-	}
 	
 	@GetMapping("/hello")
 	public String viewEnquiryPage() {
